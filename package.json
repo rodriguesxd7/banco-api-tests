@@ -3,24 +3,27 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha ./test/**/*.test.js --timeout=200000",
     "rest-api": "node rest/app.js",
     "graphql-api": "node graphql/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "O projeto é composto por duas APIs independentes que oferecem suporte a operações financeiras, com uma arquitetura baseada em REST e GraphQL.",
   "dependencies": {
     "apollo-server": "^3.13.0",
+    "chai": "^4.3.10",
     "crypto": "^1.0.1",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "graphql": "^16.10.0",
     "http-errors": "^2.0.0",
     "jsonwebtoken": "^9.0.2",
+    "mocha": "^11.7.4",
     "mysql2": "^3.12.0",
     "open-api-test-automation-coverage": "^1.0.0",
+    "supertest": "^7.1.4",
     "swagger-ui-express": "^5.0.1"
   }
 }
