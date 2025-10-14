@@ -8,12 +8,13 @@
 //caso voce esteja usando mocha para criar seus testes
 
 const request = require('supertest');
-const { expect } = require ('chai');
+const { expect } = require('chai');
+require ('dotenv').config()
 
 describe('Login', () => {
     describe('Realizar login com sucesso - POST', () => {
         it('Deve retornar 200 com o token em string quando usar credenciais validas', async () => {
-            const response = await request('http://localhost:3000')
+            const response = await request(process.env.BASE_URL)
                 .post('/login')
                 .set('Content-Type', 'application/json') //o set é usado para setar os headers
                 .send({ //envia o body da request no send
@@ -22,6 +23,8 @@ describe('Login', () => {
                 })
 
             //valicoes com chai
+            token = response.body.token;
+            console.log(token)
             expect(response.status).to.equal(200);
             expect(response.body.token).to.be.a('string');
         })
