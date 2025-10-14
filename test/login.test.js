@@ -8,7 +8,7 @@
 //caso voce esteja usando mocha para criar seus testes
 
 const request = require('supertest');
-const { expect } = require ('chai');
+const { expect } = require('chai');
 
 describe('Login', () => {
     describe('Realizar login com sucesso - POST', () => {
@@ -22,6 +22,8 @@ describe('Login', () => {
                 })
 
             //valicoes com chai
+            token = response.body.token;
+            console.log(token)
             expect(response.status).to.equal(200);
             expect(response.body.token).to.be.a('string');
         })
